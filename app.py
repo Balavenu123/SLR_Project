@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def fun():
-    return render_template('index.html')
+    return render_template('index1.html')
 
 @app.route("/predict",methods = ['GET','POST'])
 def fun3():
@@ -21,7 +21,8 @@ def fun3():
     sol = pickle.load(open("SRC.pkl",'rb'))
     predictions = sol.predict(b)
     predictions = predictions[0]
-    return render_template('index.html',prediction_text = predictions)
+    return render_template('index1.html',prediction_text = predictions)
 
 if __name__ == "__main__":
+
     app.run(debug=True)
